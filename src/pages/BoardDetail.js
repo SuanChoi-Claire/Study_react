@@ -9,6 +9,8 @@ const BoardDetail = () => {
   useEffect(() => {
     const loadBoard = async () => {
       const data = await fetchBoardDetail(id);
+      console.log(data); //[{key:velue}] ==> JSON.parse(data)
+      console.log(JSON.stringify(data)); //Object
       setBoard(data);
     };
     loadBoard();
