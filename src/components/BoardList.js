@@ -26,10 +26,12 @@ const BoardList = () => {
     loadBoards();
   }, [currentPage, searchParams]);
 
-  //onSearch 는 searchBar.js에서 쓰인다. 수정4
+  //onSearch 는 searchBar.js에서 쓰인다.
   return (
     <div>
       <SearchBar onSearch={setSearchParams} />
+      {/* 자식한테 넘겨주는 문법 이다. 이거 쓸꺼야 
+      React에서 부모 컴포넌트가 자식 컴포넌트로 값을 전달할 때 아래와 같은 문법을 사용해요.   <컴포넌트이름 속성이름={값} />     */}
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -55,6 +57,8 @@ const BoardList = () => {
               <td>{board.views}</td>
             </tr>
           ))}
+
+          {/* HTML 덩어리로 바꾸기 때문에 ()괄호를 사용한다. */}
         </tbody>
       </Table>
       <PaginationComponent

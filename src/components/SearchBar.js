@@ -8,14 +8,20 @@ const SearchBar = ({ onSearch }) => {
     date: "",
     pageSize: "10",
   }); //초기값 지정
+  //onSearch 는 부모의 setSearchParams  자식 컴포넌트에서 사용할 꺼야.
+  // ({ onSearch }) 여기서는 구조분해할당(= 통째로 가져온것)
 
   const handleChange = (e) => {
     setSearchParams({ ...searchParams, [e.target.name]: e.target.value });
   };
 
+  //이거는 자식의 setSearchParams _ searchBar에서 searchparam 값이 변경되는 함수
+
   const handleSearch = () => {
     onSearch(searchParams);
   };
+
+  //부모의 setSearchParam ( 자식의 searchParams ) 를 하게 되는데 여기서 값을 괄호 안에 넣어주면 부모의 searchParam이 자동으로 바뀐다.
 
   return (
     <Form className="mb-3">
