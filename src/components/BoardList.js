@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import { fetchBoards } from "../services/boardService";
 import SearchBar from "./SearchBar";
 import PaginationComponent from "./Pagination";
@@ -28,7 +28,7 @@ const BoardList = () => {
 
   //onSearch 는 searchBar.js에서 쓰인다.
   return (
-    <div>
+    <Container>
       <SearchBar onSearch={setSearchParams} />
       {/* 자식한테 넘겨주는 문법 이다. 이거 쓸꺼야 
       React에서 부모 컴포넌트가 자식 컴포넌트로 값을 전달할 때 아래와 같은 문법을 사용해요.   <컴포넌트이름 속성이름={값} />     */}
@@ -66,7 +66,7 @@ const BoardList = () => {
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
-    </div>
+    </Container>
   );
 };
 
